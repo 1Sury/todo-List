@@ -18,4 +18,5 @@ export default defineConfig({
         minify: 'terser',
         sourcemap: false,
     },
+
 });

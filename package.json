@@ -17,6 +17,7 @@
         "react-router-dom": "^6.30.0"
     },
     "devDependencies": {
+        "terser": "^5.20.0",
         "@types/react": "^18.2.45",
         "@types/react-dom": "^18.2.18",
         "@vitejs/plugin-react": "^4.2.1",

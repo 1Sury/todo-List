@@ -1,0 +1,26 @@
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    color: var(--text-light);
+}
+
+.empty-task-list {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .task-list-loading,
+    .empty-task-list {
+        padding: 16px;
+    }
+}

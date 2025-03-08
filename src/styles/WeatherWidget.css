@@ -1,0 +1,38 @@
+.weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 4px;
+}
+
+.weather-widget.loading {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.weather-emoji {
+    font-size: 20px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-temp {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.weather-location {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .weather-widget {
+        display: none;
+    }
+}

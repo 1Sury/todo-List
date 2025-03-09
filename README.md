@@ -32,6 +32,8 @@ todo-app/
 │   │   ├── TaskItem.jsx  # Single task component  
 │   │   ├── TaskInput.jsx # Input field for adding tasks  
 │   │   ├── WeatherWidget.jsx # Weather information display  
+│   │   ├── TaskDatePicker.js # Date picker for tasks  
+│   │   ├── ThemeToggle.jsx # Theme toggle button  
 │   ├── pages/            # App views  
 │   │   ├── Home.jsx      # Main page with task list  
 │   │   ├── Login.jsx     # Login page  
@@ -40,9 +42,14 @@ todo-app/
 │   │   ├── tasksSlice.js # Task state logic  
 │   │   ├── authSlice.js  # Authentication state logic  
 │   │   ├── weatherSlice.js # Weather data state logic  
+│   │   ├── themeSlice.js # Theme state logic  
+│   ├── styles/           # CSS files  
+│   │   ├── TaskDatePicker.css # Styling for date picker  
+│   │   ├── ThemeToggle.css # Styling for theme toggle  
 │   ├── App.jsx           # Root component  
 │   ├── main.jsx          # Entry point  
-│   ├── styles/           # CSS files  
+│   ├── App.css           # Global styling  
+│   ├── index.css         # Main CSS file  
 │── index.html            # Main HTML file  
 │── vite.config.js        # Vite configuration  
 │── package.json          # Dependencies & scripts  
@@ -81,6 +88,10 @@ todo-app/
 - Username: `demo`
 - Password: `password`
 
+## Live Demo
+
+Check out the live demo of the project: [DoIt Task Manager](https://todo-list-seven-sable-52.vercel.app/)
+
 ## Build for Production
 
 ```
@@ -98,3 +109,4 @@ The build output will be in the `dist` directory.
 - Multiple user accounts with proper backend
 - Task reminders and notifications
 - Calendar view
+

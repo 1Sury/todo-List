@@ -142,8 +142,15 @@
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
-    color: var(--text-light);
     font-size: 12px;
+}
+.pending-text
+{
+    color: #a5d6a7;
+}
+.done-text
+{
+    color:#2e7d32;
 }
 
 @media (max-width: 768px) {

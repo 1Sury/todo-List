@@ -13,7 +13,6 @@ const TaskInput = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.auth);
   
-  // Close date picker when clicking outside or pressing escape
   useEffect(() => {
     const handleClickOutside = (event) => {
       const datePickerElement = document.querySelector('.date-picker-container');
@@ -48,7 +47,6 @@ const TaskInput = () => {
     
     if (!taskText.trim()) return;
     
-    // Log the dueDate that's being sent to Redux
     console.log("Submitting task with due date:", dueDate);
     
     dispatch(addTask({
@@ -58,7 +56,6 @@ const TaskInput = () => {
       userId: user.id
     }));
     
-    // Reset form
     setTaskText('');
     setPriority('medium');
     setDueDate(null);
@@ -84,14 +81,13 @@ const TaskInput = () => {
     setShowDatePicker(false);
   };
 
-  // Format date for display
   const formatDate = (date) => {
     if (!date) return '';
     
     try {
       const displayDate = new Date(date);
       if (isNaN(displayDate.getTime())) {
-        return ''; // Return empty string if date is invalid
+        return ''; 
       }
       
       return displayDate.toLocaleDateString('en-US', { 
@@ -104,11 +100,9 @@ const TaskInput = () => {
     }
   };
 
-  // Render date picker
   const renderDatePicker = () => {
     if (!showDatePicker) return null;
     
-    // For mobile, add a backdrop
     const isMobile = window.innerWidth <= 768;
     
     return (

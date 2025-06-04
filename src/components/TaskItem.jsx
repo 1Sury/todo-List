@@ -26,7 +26,6 @@ const TaskItem = ({
   };
 
   const getFormattedDate = () => {
-    // Check if dueDate exists and display it instead of createdAt
     if (task.dueDate) {
       const date = new Date(task.dueDate);
       return date.toLocaleDateString('en-US', { 
@@ -34,8 +33,7 @@ const TaskItem = ({
         day: 'numeric' 
       });
     }
-    
-    // Fallback to createdAt if no dueDate exists
+
     const date = new Date(task.createdAt);
     return date.toLocaleDateString('en-US', { 
       month: 'short', 
@@ -43,19 +41,16 @@ const TaskItem = ({
     });
   };
 
-  // Position dropdown to the left of the options button
   useEffect(() => {
     if (showOptions && optionsButtonRef.current && dropdownRef.current) {
       const buttonRect = optionsButtonRef.current.getBoundingClientRect();
       const dropdownWidth = dropdownRef.current.offsetWidth;
       
-      // Position dropdown to the left of the button
       dropdownRef.current.style.top = `${buttonRect.bottom}px`;
       dropdownRef.current.style.left = `${buttonRect.left - dropdownWidth}px`;
     }
   }, [showOptions]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     if (showOptions) {
       const handleClickOutside = (e) => {

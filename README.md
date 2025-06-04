@@ -63,26 +63,6 @@ todo-app/
 - Node.js (v14.x or later)
 - npm (v7.x or later)
 
-### Installation
-
-1. Clone the repository
-   ```
-   git clone https://github.com/yourusername/doit-task-manager.git
-   cd doit-task-manager
-   ```
-
-2. Install dependencies
-   ```
-   npm install
-   ```
-
-3. Start the development server
-   ```
-   npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:3000`
-
 ### Demo Login
 
 - Username: `demo`
@@ -92,21 +72,4 @@ todo-app/
 
 Check out the live demo of the project: [DoIt Task Manager](https://todo-list-seven-sable-52.vercel.app/)
 
-## Build for Production
-
-```
-npm run build
-```
-
-The build output will be in the `dist` directory.
-
-## Future Enhancements
-
-- Task categories and tags
-- Task search and filter
-- Dark mode toggle
-- Task sharing
-- Multiple user accounts with proper backend
-- Task reminders and notifications
-- Calendar view
 

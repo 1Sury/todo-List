@@ -4,16 +4,10 @@ import '../styles/Sidebar.css';
 
 const Sidebar = ({ user, pendingCount, onLogout }) => {
   const { tasks } = useSelector(state => state.tasks);
-  
-  // Count tasks by priority
   const highPriorityCount = tasks.filter(task => !task.completed && task.priority === 'high').length;
   const mediumPriorityCount = tasks.filter(task => !task.completed && task.priority === 'medium').length;
   const lowPriorityCount = tasks.filter(task => !task.completed && task.priority === 'low').length;
-  
-  // Count starred tasks
   const starredCount = tasks.filter(task => task.starred).length;
-  
-  // Calculate completion percentage
   const completedPercentage = tasks.length > 0 
     ? tasks.filter(t => t.completed).length / tasks.length 
     : 0;
@@ -83,7 +77,6 @@ const Sidebar = ({ user, pendingCount, onLogout }) => {
           <div className="task-progress">
             <div className="progress-ring">
               <svg viewBox="0 0 120 120" width="120" height="120">
-                {/* Background circle */}
                 <circle
                   cx="60"
                   cy="60"
@@ -92,8 +85,6 @@ const Sidebar = ({ user, pendingCount, onLogout }) => {
                   stroke="#e0e0e0"
                   strokeWidth="10"
                 />
-                
-                {/* Pending tasks segment (light green) */}
                 <circle
                   cx="60"
                   cy="60"
@@ -105,8 +96,6 @@ const Sidebar = ({ user, pendingCount, onLogout }) => {
                   strokeDashoffset={0}
                   transform="rotate(-90 60 60)"
                 />
-                
-                {/* Completed tasks segment (dark green) */}
                 <circle
                   cx="60"
                   cy="60"

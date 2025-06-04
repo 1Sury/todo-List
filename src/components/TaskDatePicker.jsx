@@ -3,8 +3,6 @@ import '../styles/TaskDatePicker.css';
 
 const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
   console.log("TaskDatePicker initialDate:", initialDate);
-  
-  // Parse initialDate if it's a string (like an ISO date string)
   const parsedInitialDate = initialDate 
     ? (typeof initialDate === 'string' ? new Date(initialDate) : initialDate) 
     : null;
@@ -13,8 +11,6 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
   const [month, setMonth] = useState(selectedDate.getMonth());
   const [year, setYear] = useState(selectedDate.getFullYear());
   const datePickerRef = useRef(null);
-  
-  // Close date picker when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (datePickerRef.current && !datePickerRef.current.contains(event.target)) {
@@ -28,17 +24,14 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
     };
   }, [onClose]);
 
-  // Get days in month
   const getDaysInMonth = (year, month) => {
     return new Date(year, month + 1, 0).getDate();
   };
   
-  // Get day of week for first day of month
   const getFirstDayOfMonth = (year, month) => {
     return new Date(year, month, 1).getDay();
   };
   
-  // Navigate to previous month
   const prevMonth = () => {
     if (month === 0) {
       setMonth(11);
@@ -48,7 +41,6 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
     }
   };
   
-  // Navigate to next month
   const nextMonth = () => {
     if (month === 11) {
       setMonth(0);
@@ -58,31 +50,25 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
     }
   };
   
-  // Handle date selection
   const handleDateSelect = (day) => {
-    // Create the date at noon to avoid timezone issues
     const newDate = new Date(year, month, day, 12, 0, 0);
     setSelectedDate(newDate);
     console.log("Selected date in picker:", newDate);
     onSelectDate(newDate);
   };
   
-  // Quick date options
   const handleQuickOption = (option) => {
     const today = new Date();
     let newDate;
     
     switch (option) {
       case 'today':
-        // Set to noon to avoid timezone issues
         newDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0);
         break;
       case 'tomorrow':
-        // Set to noon to avoid timezone issues
         newDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 12, 0, 0);
         break;
       case 'next-week':
-        // Set to noon to avoid timezone issues
         newDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7, 12, 0, 0);
         break;
       default:
@@ -96,24 +82,20 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
     onSelectDate(newDate);
   };
   
-  // Format date for display
   const formatDate = (date) => {
     const options = { weekday: 'short', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   };
   
-  // Render calendar days
   const renderCalendarDays = () => {
     const daysInMonth = getDaysInMonth(year, month);
     const firstDay = getFirstDayOfMonth(year, month);
     const days = [];
     
-    // Add empty cells for days before the first day of the month
     for (let i = 0; i < firstDay; i++) {
       days.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
     }
     
-    // Add days of the month
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
       const isToday = new Date().toDateString() === date.toDateString();
@@ -133,7 +115,6 @@ const TaskDatePicker = ({ onSelectDate, onClose, initialDate = null }) => {
     return days;
   };
   
-  // Get month name
   const getMonthName = (monthIndex) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 
                    'July', 'August', 'September', 'October', 'November', 'December'];

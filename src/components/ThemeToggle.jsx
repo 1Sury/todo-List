@@ -10,18 +10,15 @@ const ThemeToggle = () => {
     const newMode = !isDarkMode;
     dispatch({ type: 'theme/setDarkMode', payload: newMode });
     
-    // Apply theme class to document body
     if (newMode) {
       document.body.classList.add('dark-mode');
     } else {
       document.body.classList.remove('dark-mode');
     }
     
-    // Save preference to localStorage
     localStorage.setItem('darkMode', JSON.stringify(newMode));
   };
   
-  // Initialize theme from localStorage on component mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkMode');
     
